@@ -1,0 +1,43 @@
+body{
+    font-family: 'Amatic SC', cursive;
+}
+
+.calculator{
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    place-content: center;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+}
+
+.container{
+    text-align: center;
+}
+
+.container h1{
+    font-size: 2rem;
+}
+
+.calculator button{
+    padding: 2.8rem;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: 1rem;
+    font-family: 'Cuprum', sans-serif;
+
+}
+
+.operands{
+    background-color: #dbd5d5;
+}
+
+.equal{
+    background-color: #4358f7;
+}
+
+.numbers{
+    background-color: #f0f0f0;
+}
+
