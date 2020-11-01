@@ -4,7 +4,7 @@ body{
 
 .calculator{
     display: grid;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
     grid-template-columns: auto auto auto auto;
     justify-content: center;
     place-content: center;
@@ -16,12 +16,12 @@ body{
     text-align: center;
 }
 
-.container h1{
+.title{
     font-size: 2rem;
 }
 
 .calculator button{
-    padding: 2.8rem;
+    padding: 2.6rem;
     font-size: 1.5rem;
     border: 0;
     border-radius: 1rem;
@@ -34,10 +34,19 @@ body{
 }
 
 .equal{
-    background-color: #4358f7;
+    background-color: #47a6ff;
 }
 
 .numbers{
     background-color: #f0f0f0;
 }
+
+.result{
+    border-radius: 1rem;
+    background-color: #f0f0f0;
+    grid-column: 1 / 5;
+    margin: 0;
+    font-size: 3rem;
+}
+
 
