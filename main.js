@@ -45,11 +45,6 @@ const btn18 = document.querySelector('#btn18')
 const btn19 = document.querySelector('#btn19')
 const btn20 = document.querySelector('#btn20')
 
-btn17.addEventListener('click', () => {
-    if (num1 == 0) {
-        num1 = 1;
-    }else {
-        num2 = 1;
-    }
-    result.textContent = num1 + num2
+btn19.addEventListener('click', () => {
+    result.textContent = "Daria nu are caine lol xD"
 })
