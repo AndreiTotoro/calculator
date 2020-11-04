@@ -101,6 +101,12 @@ let calcButtons = [
     },
 ];
 
+let results = {
+    current: 0,
+    previous: 0,
+    total: 0
+}
+
 
 function add(num1, num2){
     return num1 + num2
@@ -123,6 +129,8 @@ function operate(operator, num1, num2){
 }
 
 const container = document.querySelector('#container')
+const resultForm = document.createElement('h1')
+
 
 calcButtons.forEach((obj) => {
    let btns = document.createElement('button')
@@ -139,5 +147,13 @@ calcButtons.forEach((obj) => {
         btns.classList.add('equal')
     }
 
+    btns.addEventListener('click', () => {
+        console.log(obj.value)
+    })
+
 })
 
+container.appendChild(resultForm)
+
+resultForm.textContent = results.current
+resultForm.classList.add('result')
