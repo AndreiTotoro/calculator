@@ -151,15 +151,18 @@ calcButtons.forEach((obj) => {
         btns.addEventListener('click', () => {
             results.previous = results.current
             results.current = "";
-            results.equation = `${results.previous} ${obj.value} ${results.current}`
+            if (results.equation == ""){
+                results.equation = `${results.previous}`
+                resultForm.textContent = results.equation
+            }
+            results.equation = `${results.equation} ${obj.value} ${results.current}`
             resultForm.textContent = results.equation
         })
     } else if (obj.type == "equal"){
         btns.classList.add('equal')
         btns.addEventListener('click', () => {
-            resultForm.textContent = eval(results.equation)
+            resultForm.textContent = eval(results.equation)    
             results.current = eval(results.equation)
-            results.previous = ""
             results.equation = ""
             
         })
