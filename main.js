@@ -102,8 +102,8 @@ let calcButtons = [
 ];
 
 let results = {
-    current: 0,
-    previous: 0,
+    current: "",
+    previous: "",
     total: 0
 }
 
@@ -141,19 +141,20 @@ calcButtons.forEach((obj) => {
 
     if (obj.type == "number"){
         btns.classList.add("number")
+        btns.addEventListener('click', () => {
+            results.current += obj.value
+            console.log(results.current)
+            resultForm.textContent = results.current
+        })
     } else if (obj.type == "operand" || obj.type == "dot" || obj.type == "clear"){
         btns.classList.add('operand')
     } else if (obj.type == "equal"){
         btns.classList.add('equal')
     }
 
-    btns.addEventListener('click', () => {
-        console.log(obj.value)
-    })
+    
 
 })
 
 container.appendChild(resultForm)
-
-resultForm.textContent = results.current
 resultForm.classList.add('result')
