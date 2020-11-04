@@ -102,9 +102,9 @@ let calcButtons = [
 ];
 
 let results = {
+    equation: "",
     current: "",
     previous: "",
-    total: 0
 }
 
 
@@ -143,13 +143,41 @@ calcButtons.forEach((obj) => {
         btns.classList.add("number")
         btns.addEventListener('click', () => {
             results.current += obj.value
-            console.log(results.current)
-            resultForm.textContent = results.current
+            results.equation += obj.value
+            resultForm.textContent = results.equation
         })
-    } else if (obj.type == "operand" || obj.type == "dot" || obj.type == "clear"){
-        btns.classList.add('operand')
+    } else if (obj.type == "operand"){
+        btns.classList.add('operands')
+        btns.addEventListener('click', () => {
+            results.previous = results.current
+            results.current = "";
+            results.equation = `${results.previous} ${obj.value} ${results.current}`
+            resultForm.textContent = results.equation
+        })
     } else if (obj.type == "equal"){
         btns.classList.add('equal')
+        btns.addEventListener('click', () => {
+            resultForm.textContent = eval(results.equation)
+            results.current = eval(results.equation)
+            results.previous = ""
+            results.equation = ""
+            
+        })
+    } else if (obj.type == "clear"){
+        btns.classList.add('operands')
+        btns.addEventListener('click', () => {
+            results.current = "";
+            results.previous = "";
+            results.equation = "";
+            resultForm.textContent = results.equation
+        })
+    } else if (obj.type == "dot"){
+        btns.classList.add('operands')
+        btns.addEventListener('click', () => {
+            results.current += "."
+            results.equation += "."
+            resultForm.textContent = results.equation   
+        })
     }
 
     
