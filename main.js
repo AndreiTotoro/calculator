@@ -1,6 +1,105 @@
-let num1 = 0;
-let num2 = 0;
-let operand = "";
+let calcButtons = [
+    {
+        type: "operand",
+        display: "(",
+        value: "(",
+    },
+    {
+        type: "operand",
+        display: ")",
+        value: ")",
+    },
+    {
+        type: "operand",
+        display: "%",
+        value: "%",
+    },
+    {
+        type: "clear",
+        display: "AC",
+        value: "clear",
+    },
+    {
+        type: "number",
+        display: "7",
+        value: "7",
+    },
+    {
+        type: "number",
+        display: "8",
+        value: "8",
+    },
+    {
+        type: "number",
+        display: "9",
+        value: "9",
+    },
+    {
+        type: "operand",
+        display: ":",
+        value: "/",
+    },
+    {
+        type: "number",
+        display: "4",
+        value: "4",
+    },
+    {
+        type: "number",
+        display: "5",
+        value: "5",
+    },
+    {
+        type: "number",
+        display: "6",
+        value: "6",
+    },
+    {
+        type: "operand",
+        display: "x",
+        value: "*",
+    },
+    {
+        type: "number",
+        display: "1",
+        value: "1",
+    },
+    {
+        type: "number",
+        display: "2",
+        value: "2",
+    },
+    {
+        type: "number",
+        display: "3",
+        value: "3",
+    },
+    {
+        type: "operand",
+        display: "-",
+        value: "-",
+    },
+    {
+        type: "number",
+        display: "0",
+        value: "0",
+    },
+    {
+        type: "dot",
+        display: ".",
+        value: ".",
+    },
+    {
+        type: "equal",
+        display: "=",
+        value: "=",
+    },
+    {
+        type: "operand",
+        display: "+",
+        value: "+",
+    },
+];
 
 
 function add(num1, num2){
@@ -23,28 +122,22 @@ function operate(operator, num1, num2){
     return operator(num1, num2)
 }
 
-const result = document.querySelector('#result')
-const btn1 = document.querySelector('#btn1')
-const btn2 = document.querySelector('#btn2')
-const btn3 = document.querySelector('#btn3')
-const btn4 = document.querySelector('#btn4')
-const btn5 = document.querySelector('#btn5')
-const btn6 = document.querySelector('#btn6')
-const btn7 = document.querySelector('#btn7')
-const btn8 = document.querySelector('#btn8')
-const btn9 = document.querySelector('#btn9')
-const btn10 = document.querySelector('#btn10')
-const btn11 = document.querySelector('#btn11')
-const btn12 = document.querySelector('#btn12')
-const btn13 = document.querySelector('#btn13')
-const btn14 = document.querySelector('#btn14')
-const btn15 = document.querySelector('#btn15')
-const btn16 = document.querySelector('#btn16')
-const btn17 = document.querySelector('#btn17')
-const btn18 = document.querySelector('#btn18')
-const btn19 = document.querySelector('#btn19')
-const btn20 = document.querySelector('#btn20')
+const container = document.querySelector('#container')
 
-btn19.addEventListener('click', () => {
-    result.textContent = "Daria nu are caine lol xD"
+calcButtons.forEach((obj) => {
+   let btns = document.createElement('button')
+   container.appendChild(btns)
+   
+   btns.textContent = obj.display
+   btns.classList.add('buttons')
+
+    if (obj.type == "number"){
+        btns.classList.add("number")
+    } else if (obj.type == "operand" || obj.type == "dot" || obj.type == "clear"){
+        btns.classList.add('operand')
+    } else if (obj.type == "equal"){
+        btns.classList.add('equal')
+    }
+
 })
+
